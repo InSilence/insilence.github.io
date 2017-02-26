@@ -105,8 +105,8 @@
     fancybox: true,
     motion: true,
     duoshuo: {
-      userId: '0',
-      author: '博主'
+      userId: '6391375358960076000',
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -216,7 +216,7 @@
       
         <li class="menu-item menu-item-search">
           
-            <a href="javascript:;" class="st-search-show-outputs">
+            <a href="javascript:;" class="popup-trigger">
           
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
@@ -231,19 +231,12 @@
   
     <div class="site-search">
       
-  <form class="site-search-form">
-  <input type="text" id="st-search-input" class="st-search-input st-default-search-input" />
-</form>
-
-<script type="text/javascript">
-  (function(w,d,t,u,n,s,e){w['SwiftypeObject']=n;w[n]=w[n]||function(){
-    (w[n].q=w[n].q||[]).push(arguments);};s=d.createElement(t);
-    e=d.getElementsByTagName(t)[0];s.async=1;s.src=u;e.parentNode.insertBefore(s,e);
-  })(window,document,'script','//s.swiftypecdn.com/install/v2/st.js','_st');
-
-  _st('install', 'uEyRbDhzrf1Sdz_pRD7n','2.0.0');
-</script>
-
+  <div class="popup">
+ <span class="search-icon fa fa-search"></span>
+ <input type="text" id="local-search-input">
+ <div id="local-search-result"></div>
+ <span class="popup-btn-close">close</span>
+</div>
 
 
     </div>
@@ -327,6 +320,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/02/26/视频编码格式全面解析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/02/26/视频编码格式全面解析/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -351,95 +354,16 @@
       
         
           
-            <p>我们在详解各种主流的视频格式之前，先抛开各种视频格式的定义，来讨论这样一件事情：你觉得目前的视频格式编码混乱吗？相信这个问题问出来，许多、、不同知识层次的人有不同的思考，但是答案却都有一个共同点就是：“混乱”。</p>
-<p>从我们在接触网络上面看电影以来，就会遇到从原先我们熟知的RMVB格式的视频到后来接触的MP4、3GP等格式的视频就会感到为什么同样是AVI的视频，我的MP4却不支持，而别人的就可以呢？这里就涉及到了视频编码与封装格式的问题。本文主要是针对视频编码进行讨论，以后会在下次为大家讲解一下关于封装格式的问题。</p>
-<p>所谓 <strong>视频编码方式</strong>就是指通过特定的压缩技术，将某个视频格式的文件转换成另一种视频格式文件的方式。目前视频流传输中最为重要的编解码标准有国际电联的H.264，运动静止图像专家组的M-JPEG和国际标准化组织运动图像专家组的MPEG系列标准，此外在互联网上被广泛应用的还有Real-Networks的RealVideo、微软公司的WMV以及Apple公司的QuickTime等，到目前google力推的WebM格式都收到了我们的关注。以下我们会为大家就主流的视频编码做一下讲解。</p>
-<p><img src="/img/22642098_1.jpg" alt="22642098_1"></p>
-<center>编码对比</center>
-
-<p><img src="/img/22642098_2.jpg" alt="22642098_2"></p>
-<p><img src="/img/3.png" alt="3"></p>
-<p><strong>视频国际标准化相关组织的的ISO和ITU-T</strong></p>
-<p>格式的统一肯定会极大地提高人们的生活的便利以及数据的传播，为什么还会有如此繁多的视频编码的方式，难道就没有专门机构或者组织来管理一下吗？带着这些疑问我们认识一下底下的两个机构。<br><strong>■ ITU-T</strong></p>
-<blockquote>
-<p>ITU-T的中文名称是国际电信联盟远程通信标准化组织(ITU-T for ITU Telecommunication Standardization Sector), 它是国际电信联盟管理下的专门制定远程通信相关国际标准的组织。由ITU-T指定的国际标准通常被称为建议(Recommendations)。由于ITU-T是ITU的一部分，而ITU是联合国下属的组织，所以由该组织提出的国际标准比起其它的组织提出的类似的技术规范更正式一些。</p>
-<p>它制定的标准有H.261、H.263、H.263+等，目前流行最广的，影响也是最大的H.264也有他的一份功劳。底下附上</p>
-<p>H - 视频音频以及多媒体系统复合方法<br>　　H.223 低码率多媒体通信复合协议<br>　　H.225.0 也被称为实时传输协议<br>　　H.261 视频压缩标准, 约1991年<br>　　H.262 视频压缩标准(和MPEG-2第二部分内容相同), 约1994年<br>　　H.263 视频压缩标准, 约1995年<br>　　H.263v2 (也就是 H.263+) 视频压缩标准, 约1998年<br>　　H.264 视频压缩标准(和MPEG-4第十部分内容相同), 约2003年<br>　　H.323 基于包传输的多媒体通信系统</p>
-</blockquote>
-<p><strong>■ ISO</strong></p>
-<blockquote>
-<p>国际标准化组织（ISO）是由各国标准化团体（ISO成员团体）组成的世界性的联合会。负责各种标准的制定，当然也少不了关于视频编码方面的。它制定的标准有MPEG-1、MPEG-2、MPEG-4等。并且已经制定出来了最新的MPEG-7，并且计划公布MPEG-21。</p>
-<p>国际标准化组织（ISO）制定的标准主要集中在MPEG系列。也就是由动态的图像专家组制定的一系列的标准。</p>
-<p>由ISO下属的MPEG运动图象专家组开发视频编码方面主要是Mpeg1（vcd用的就是它）、Mpeg2（DVD使用）、Mpeg4（现在的DVDRIP使用的都是它的变种，如：divx，xvid等）、Mpeg4 AVC（现在正热门也就是H.264）</p>
-<p>了解一下这两家机构是我们了解视频编码之所以会对现在所采用的主流视频的编码有着重要的作用。正是这两家机构根据不同的时期对于视频编码的不断地调整才使得目前的视频编码看起来混乱的原因。其实本意是为了满足目前互联网的快速发展以及随着电脑性能的提高做得调整，随着时间的推移，可以预见的是短时间内视频的编码还是会多家并存，随着google、微软等巨头的涌入，可能会在不久的将来也发生一定的变化。</p>
-<p><strong>ISO国际标准化组织制定的MPEG-4</strong></p>
-<p>MPEG全称是Moving Pictures Experts Group，它是“动态图象专家组”的英文缩写，该专家组成立于1988年，致力于运动图像及其伴音的压缩编码标准化工作，原先他们打算开发MPEG1、MPEG2、MPEG3和MPEG4四个版本，以适用于不同带宽和数字影像质量的要求。</p>
-<p>采用了MPEG-4视频编码的蓝光盘<br>MPEG系列标准已成为国际上影响最大的多媒体技术标准，其中MPEG-1和MPEG-2是采用以香农信息论为基础的预测编码、变换编码、熵编码及运动补偿等第一代数据压缩编码技术；MPEG-4（ISO/IEC 14496）则是基于第二代压缩编码技术制定的国际标准，它以视听媒体对象为基本单元，采用基于内容的压缩编码，以实现数字视音频、图形合成应用及交互式多媒体的集成。MPEG系列标准对VCD、DVD等视听消费电子及数字电视和高清晰度电视（DTV和HDTV）、多媒体通信等信息产业的发展产生了巨大而深远的影响。</p>
-<p>MPEG1已经在VCD上得到了广泛的应用，而MPEG2在DVD以及广播电视上面得到了利用，而MPEG3最初是为HDTV开发的编码和压缩标准，但由于MPEG2的出色性能表现，MPEG3并没有得到重用，只好在半路就被pass掉了。</p>
-</blockquote>
-<p><img src="/img/ceEF0FTYSjpPs.gif" alt="MPEG-4的规范"></p>
-<p><center>MPEG-4的规范</center>&gt;</p>
-<blockquote>
-<p>MPEG-4于1999年初正式成为国际标准。它是一个适用于低传输速率应用的方案。与MPEG1和MPEG2相比，MPEG4更加注重多媒体系统的交互性和灵活性。MPEG-4（同时也是ISO/IEC 14496）的制订并非只有动态视频的编解码而已，其中还包括诸多的环节与项目，真正与视频直接且密切相关的，其实就是MPEG-4 Part 2（也称为MPEG-4 Visual）的部分，其余还有用于传送时的整合架构规范、文件格式、软件规范、相关定义等。</p>
-<p>MPEG1、MPEG2技术当初制定时，它们定位的标准均为高层媒体表示与结构，但随着计算机软件及网络技术的快速发展，MPEG1.MPEG2技术的弊端就显示出来了：交互性及灵活性较低，压缩的多媒体文件体积过于庞大，难以实现网络的实时传播。而MPEG4技术的标准是对运动图像中的内容进行编码，其具体的编码对象就是图像中的音频和视频，术语称为“AV对象”，而连续的AV对象组合在一起又可以形成AV场景。因此，MPEG4标准就是围绕着AV对象的编码、存储、传输和组合而制定的，高效率地编码、组织、存储、传输AV对象是MPEG4标准的基本内容。AV对象（AVO，Audio Visual Object）是MPEG-4为支持基于内容编码而提出的重要概念。对象是指在一个场景中能够访问和操纵的实体，对象的划分可根据其独特的纹理、运动、形状、模型和高层语义为依据。在MPEG-4中所见的视音频已不再是过去MPEG-1、MPEG-2中图像帧的概念，而是一个个视听场景（AV场景），这些不同的AV场景由不同的AV对象组成。AV对象是听觉、视觉、或者视听内容的表示单元，其基本单位是原始AV对象，它可以是自然的或合成的声音、图像。原始AV对象具有高效编码、高效存储与传输以及可交互操作的特性，它又可进一步组成复合AV对象。因此MPEG-4标准的基本内容就是对AV对象进行高效编码、组织、存储与传输。AV对象的提出，使多媒体通信具有高度交互及高效编码的能力，AV对象编码就是MPEG-4的核心编码技术.</p>
-<p>在视频编码方面，MPEG4支持对自然和合成的视觉对象的编码。（合成的视觉对象包括2D、3D动画和人面部表情动画等）。在音频编码上，MPEG4可以在一组编码工具支持下，对语音、音乐等自然声音对象和具有回响、空间方位感的合成声音对象进行音频编码。</p>
-<p>由于MPEG4只处理图像帧与帧之间有差异的元素，而舍弃相同的元素，因此大大减少了合成多媒体文件的体积。应用MPEG4技术的影音文件最显著特点就是压缩率高且成像清晰，一般来说，一小时的影像可以被压缩为350M左右的数据，而一部高清晰度的DVD电影, 可以压缩成两张甚至一张650M CD光碟来存储。</p>
-<p>做一个对比就可以清楚地看到MPEG-4（part2）的优点，如果传输一个1920×1080的HD高分辨率、24fps（每秒更新24张画面）传输频宽上MPEG-2需要12～20Mbps，相对的MPEG-4 SP（第二部分）只要10Mbps多点，更直接地说，若将MPEG-2的频宽视为基准100%，MPEG-4 SP要达相同体验效果只需60%频宽。</p>
-</blockquote>
-<p><strong>■ MPEG-4的技术特点</strong></p>
-<blockquote>
-<p>MPEG-4则代表了基于模型/对象的第二代压缩编码技术，它充分利用了人眼视觉特性，抓住了图像信息传输的本质，从轮廓、纹理思路出发，支持基于视觉内容的交互功能，这适应了多媒体信息的应用由播放型转向基于内容的访问、检索及操作的发展趋势。</p>
-<p>MPEG-4不仅可提供高压缩率，同时也可实现更好的多媒体内容互动性及全方位的存取性，它采用开放的编码系统，可随时加入新的编码算法模块，同时也可根据不同应用需求现场配置解码器，以支持多种多媒体应用。</p>
-<p>MPEG-4 采用了新一代视频编码技术，它在视频编码发展史上第一次把编码对象从图像帧拓展到具有实际意义的任意形状视频对象，从而实现了从基于像素的传统编码向基于对象和内容的现代编码的转变，因而引领着新一代智能图像编码的发展潮流。</p>
-<p>MPEG-4作为新一代多媒体数据压缩编码的典型代表，它第一次提出了基于内容、基于对象的压缩编码思想。它要求对自然或合成视听对象作更多分析甚至是理解，这正是信息处理的高级阶段，因而代表了现代数据压缩编码技术的发展方向。</p>
-<p>MPEG-4实现了从矩形帧到VOP的转变以及基于像素的传统编码向基于对象和内容的现代编码的转变，这正体现了传统视频编码与新一代视频编码的有机统一。基于内容的交互性是MPEG-4的核心思想，这对于视频编码技术的发展方向及广泛应用都具有特别重要的意义。</p>
-</blockquote>
-<p><strong>■ 目前主流占优势的H.264</strong></p>
-<blockquote>
-<p>H.264 是由ITU-T 的VCEG（视频编码专家组）和ISO/IEC 的MPEG（活动图像编码专家组）联合组建的联合视频组（JVT：joint video team）提出的一个新的数字视频编码标准，它既是ITU-T 的H.264，又是ISO/IEC 的MPEG-4 的第10 部分。而国内业界通常所说的MPEG-4 是MPEG-4 的第2 部分。即：</p>
-<font color="#FF0000">H.264=MPEG-4（第十部分，也叫ISO/IEC 14496-10）=MPEG-4 AVC<br>因此，不论是MPEG-4 AVC、MPEG-4 Part 10，还是ISO/IEC 14496-10，都是指H.264。H.264也是MPEG-4的一部分。</font>
-
-<p>H.264标准从1998 年1 月份开始草案征集，到2003 年7 月，整套H.264 （ISO/IEC 14496-10）规范定稿。2005年1 月，MPEG 组织正式发布了H.264 验证报告，从各个方面论证了H.264 的可用性以及各种工具集的效果，从标准的角度，印证H.264 的成熟性。</p>
-<p>关于该技术的视频编码方案，现在正式命名为ITU-T H.264或“JVT/AVC草案”。H.264/MPEG-4 AVC作为MPEG-4标准的扩展（MPEG-4 Part 10），充分利用了现有MPEG-4标准中的各个环节。H.264/MPEG-4 AVC就在现有MPEG-4 Advanced Simple Profile的基础之上进行发展的。它即保留了以往压缩技术的优点和精华又具有其他压缩技术无法比拟的许多优点。</p>
-</blockquote>
-<p><strong>H.264的技术特点：</strong></p>
-<p>H.264 使图像压缩技术上升到了一个更高的阶段，能够在较低带宽上提供高质量的图像传输，该优点非常适合国内运营商用户量大、接入网/骨干网带宽相对有限的状况。在同等的画质下，H.264 比上一代编码标准MPEG2 平均节约64％的传输码流，而比MPEG4 ASP 要平均节约39％的传输码流。全球很多IPTV业务运营商都将H.264 作为编解码格式的标准，包括比利时电信，荷兰KPN，泰国ADC 电信，中国电信等等。</p>
-<p>根据中国电信上海研究院的实际测试结果表明：国内普遍采用的MPEG-4 编码技术在3Mbps 的带宽下尚达不到标清的图像质量，而H.264 编码技术可以在2M 带宽下提供要求的图像效果。因而运营商希望引入更先进的H.264 编码技术，在有限的带宽资源下进一步提高图像质量。其主要的特点是：</p>
-<p>1．更高的编码效率：同H.263等标准的特率效率相比，能够平均节省大于50％的码率。<br>　　2．高质量的视频画面：H.264能够在低码率情况下提供高质量的视频图像，在较低带宽上提供高质量的图像传输是H.264的应用亮点。和MPEG2和MPEG4 ASP等压缩技术相比，在同等图像质量下，采用H.264技术压缩后的数据量只有MPEG2的1/8，MPEG4的1/3。显然，H.264压缩技术的采用将大大节省用户的下载时间和数据流量收费。<br>　　3．提高网络适应能力：H.264可以工作在实时通信应用（如视频会议）低延时模式下，也可以工作在没有延时的视频存储或视频流服务器中。<br>　　4．采用混合编码结构：同H.263相同，H.264也使用采用DCT变换编码加DPCM的差分编码的混合编码结构，还增加了如多模式运动估计、帧内预测、多帧预测、基于内容的变长编码、4x4二维整数变换等新的编码方式，提高了编码效率。<br>　　5．H.264的编码选项较少：在H.263中编码时往往需要设置相当多选项，增加了编码的难度，而H.264做到了力求简洁的“回归基本”，降低了编码时复杂度。<br>　　6．H.264可以应用在不同场合：H.264可以根据不同的环境使用不同的传输和播放速率，并且提供了丰富的错误处理工具，可以很好的控制或消除丢包和误码。<br>　　7．错误恢复功能：H.264提供了解决网络传输包丢失的问题的工具，适用于在高误码率传输的无线网络中传输视频数据。<br>　　8．较高的复杂度：264性能的改进是以增加复杂性为代价而获得的。据估计，H.264编码的计算复杂度大约相当于H.263的3倍，解码复杂度大约相当于H.263的2倍。</p>
-<p>技术上，它集中了以往标准的优点，并吸收了标准制定中积累的经验。与H.263 v2(H.263+)或MPEG-4简单类(Simple Profile)相比，H.264在使用与上述编码方法类似的最佳编码器时，在大多数码率下最多可节省50%的码率。H.264在所有码率下都能持续提供较高的视频质量。H.264能工作在低延时模式以适应实时通信的应用(如视频会议)，同时又能很好地工作在没有延时限制的应用，如视频存储和以服务器为基础的视频流式应用。H.264提供包传输网中处理包丢失所需的工具，以及在易误码的无线网中处理比特误码的工具。</p>
-<p>在系统层面上，H.264提出了一个新的概念，在视频编码层(Video Coding Layer, VCL)和网络提取层(Network Abstraction Layer, NAL)之间进行概念性分割，前者是视频内容的核心压缩内容之表述，后者是通过特定类型网络进行递送的表述，这样的结构便于信息的封装和对信息进行更好的优先级控制。</p>
-<p><strong>既生瑜何生亮？</strong></p>
-<p>其实通过上面的讨论我们也看到了H.264跟MPEG-4（part2）都是为了互联网而生，而且有许多共同的特点，那么既生MPEG-4？何生H.264？有了MPEG-4（第二部分）为什么还要H.264，岂不是多此一举？两者到底有多大的区别呢？为何需要再订制出MPEG-4 Part 10呢？直接沿用MPEG-4 Part 2难道不行？</p>
-<p>虽然MPEG-4已针对Internet传送而设计，提供比MPEG-2更高的视频压缩效率，更灵活与弹性变化的播放取样率，但就视频会议而言总希望有更进一步的压缩，所以才需要出现了H.264。<br>首先就是上文提到的H.264对于带宽的要求低，在带宽比较吃紧的情况下一样可以正常的工作，只相当于MPEG-4第二部分的2/3，不要小看这些，这些就可以决定你看视频是否流畅。更具体地说，H.264力求在40kbps～300kbps的有限带宽下尽可能得到流畅、清晰的表现。</p>
-<p>那么到底压缩了更小的H.264能够有更高的压缩率，播放效果是不是大打折扣呢？播放效果与MPEG-2、MPEG-4近乎相同嘛？是的，其实视频的质量我们看不出多大的差别，之所以出现这种现象答案在于H.264采用了更复杂的编码算法，当然对于解码也提出了更高的要求。</p>
-<p>以前之所以未采用更复杂的算法，是考虑到解码（播放）端的运算能力不足，就会导致播放不流畅，失去视频娱乐观赏的意义，但如今不同，无论桌面电脑、移动终端的性能都突飞猛进，即便运用更复杂的压缩编码都可以实时解码、流畅地播放，这正是MEPG-4、H.264能够流行的一项先决条件。</p>
-<p>但是其实这些都不是关键，目前的宽带已经完全满足了mpeg-4第二部分的使用，但是为什么还要H.264呢？就是因为授权的问题。关于这个问题，H.264不仅压缩算法比以往的MPEG-4更优异，带宽耗用更低，还有一项最诱人的特点：授权费用比较合理，因为H.264晚于MPEG-4问世，且两者定位接近，既然如此，H.264只好在授权费上降低定位，期盼以较宽厚的授权方式争取被采用，而这正是对了运营商的胃口，当初许多运营商对MPEG-4的授权深表反感，之后也都热烈拥护H.264。</p>
-<p><strong>■ 巨头微软力推的VC-1</strong></p>
-<blockquote>
-<p>VC-1是软件巨头微软力推的一种视频编码的格式，但是它的发展并不是很顺利，可以说是历经坎坷。直到2006年初，活动图像和电视工程师协会(SMPTE)才正式颁布了由微软提出并开发的VC-1视频编码标准。</p>
-<p>微软是在2003年9月递交VC-1编码格式(开发代号Corona)的，目前已经得到了MovieBeam、Modeo等不少公司的采纳，同时也包含在 HD DVD和蓝光中，包括华纳和环球等影业公司也有采用这种格式的意向。VC-1基于微软Windows Media Video 9(WMV9)格式，而WMV9格式现在已经成为VC-1标准的实际执行部分。WMV（Windows Media Video）是微软公司的视频编解码器家族，包括WMV 7、WMV 8、WMV 9、WPV 10。这一族的编解码器可以应用在从拨号上网的窄带视频到高清晰度电视(HDTV)的宽带视频。使用Windows Media Video用户还可以将视频文件刻录到CD、DVD或者其它一些设备上。它也适用于用作媒体服务器。WMV 可以被看作是MPEG-4的一个增强版本。最新的由SMPTE（电视电影工程师协会）承认的WMV-9，也就是我们说的上面的VC-1。</p>
-<p>VC-1是最后被认可的高清编码格式，不过因为有微软的后台，所以这种编码格式不能小窥。相对于MPEG2，VC-1的压缩比更高，但相对于H.264而言，编码解码的计算则要稍小一些，目前来看，VC-1可能是一个比较好的平衡，辅以微软的支持，应该是一只不可忽视的力量。一般来说，VC-1多为 “.wmv”后缀，但这都不是绝对的，具体的编码格式还是要通过软件来查询。</p>
-<p>总的来说，从压缩比上来看，H.264的压缩比率更高一些，也就是同样的视频，通过H.264编码算法压出来的视频容量要比VC-1的更小，但是VC-1 格式的视频在解码计算方面则更小一些，一般通过高性能的CPU就可以很流畅的观看高清视频。</p>
-</blockquote>
-<p><strong>VC-1的发展有利方面以及发展中的障碍</strong></p>
-<p>VC-1具备迅速缩小差距的潜力，因为VC-1是在WM9压缩系统的基础上建立的，与MPEG-4存在众多解释分歧的情况相比，该规范的分歧空间较小。另一个对VC-1有力的重要因素是许多电信公司(包括SBC)已宣布支持微软的IPTV平台。虽然H.264可以部署在微软的IPTV平台上，但已经采用微软IPTV的电信公司强烈倾向于实现完全集成的微软方案。保证VC-1互操作性的过程也有可能更加简单，因为不同于由许多供应商给出不同解释的H.264，微软是该标准的最终裁定者。</p>
-<p>不过，VC-1目前的气势依然弱于H.264，也弱于MPEG-4，一方面是VC-1在技术层面上的实际表现与H.264无太大差异，VC-1同样以MPEG-4为基础，但并没有特别的突出点或优越性，运营商从技术角度考虑没有必要非选择VC-1。</p>
-<p>另外，从授权角度来看VC-1是否有优势呢？答案是三者中最不利的，碍于Microsoft一贯的推行策略，VC-1的授权来源仅只一家，授权价格与方式调整，以及后续版本的改进方向，都由微软一手掌握，无人能左右，眼前为与MPGE-4、H.264等竞争，VC-1授权自然不敢过高，但运营商依然对未来是否会涨价表示担心。</p>
-<p><strong>新势力的WebM</strong></p>
-<p>如果说H.264的出现是对于MPEG-4第二部分的视频编码收费过高的宣战，那么google力推的WebM则就是对于收版权费的视频编码的宣战。尽管在视频的质量上WebM没有多大的优势，但是WebM的标准更倾向于开源，因此也就是对于网络更加的便利化的一个催进剂。WebM所使用的VP8视频格式，相对于H.264而言并无技术上的优势，但胜在免费；而H.264不仅技术优势明显，并且已经成为一种事实标准，获得了广泛的应用。</p>
-<p>WebM标准的网络视频更加偏向于开源并且是基于HTML5标准的。最为可怕的是WebM标准受到了包括 Opera,Mozilla,adobe等软件巨头和AMD,ARM,NVIDIA，qualcomm在内硬件巨头的支持，在未来潜力巨大。而且google自己的全球第一大视频网站YouTube目前80%的视频支持全新的WebM标准。</p>
-<p>WebM是一个由Google资助的项目，目标是构建一个开放的、免版权使用费的视频文件格式。该视频文件格式应能提供高质量的视频压缩以配合 HTML 5使用。WebM项目是一个使用BSD许可证的开源项目，它采用了On2 Technologies开发的VP8视频编解码器和Xiph.Org基金会开发的Vorbis音频编解码器（一种开源且无专利限制的音频压缩格式），其 使用的封装格式则以Matroska（MKV）开源格式为基础。</p>
-<p>这是一个极好的解决方案，因为它在可能是最进步的开源协议之下提供WebM源代码，允许几乎任何背景下的代码重用，而又克服了BSD许可中的一大弱点－－专利授权机制的缺乏。”<br>不幸的是，问题还没有被彻底地划清。仅管许可问题已经被解决，WebM现在下享受着广大技术界的支持，MPEG LA问题依然存在。MPEG LA有一个管理着H.264许可发放(H.264 licensing的组织。这一组织说它在考虑为VP8集成一个专利池(gathering a patent pool for VP8)，声明说codec可能被属于与MPEG LA相关的公司的专利覆盖。如果这一组织最终这么做，这将意味着V8将不再免专利税。</p>
-<hr>
-<p><strong>写在最后：</strong></p>
-<p>目前的视频发展中，可以说老的视频格式并没有死去，而是正当年。而新的视频由于适应了网络时代的发展，前途光明。</p>
-<p>目前的MPEG-2的视频在蓝光时代一样是得到了重用，MPEG-2不是MPEG -1的简单升级，MPEG-2在系统和传送方面作了更加详细的规定和进一步的完善。MPEG-2特别适用于广播级的数字电视的编码和传送，被认定为SDTV和HDTV的编码标准。DVD影碟就是采用MPEG-2压缩标准。</p>
-<p>而H.264虽然收费问题仍让人不满，但是由于普及的面大，加上其算法上面的领先，在短时间内不会让别人追上。而MPEG-4{2}由于目前网络速度的发展，加上费用的下降甚至于以后的费用可能为零来竞争，也很有发展前途。</p>
-<p>而google与微软自己力推的WMV以及WebM都有着巨头强大的实力作为后盾。特别是WMV这几年已经在日常中比较常见了，而WebM由于开源加上免费的优点，再加上其最大的视频网站YOutobe作为后盾，加上许多厂家的力捧，很有希望在以后后来居上。</p>
-<p>本期的高清频道的对于高清基本知识的讲解的是关于高清视频主流的编码方式。下一期我们会涉及到视频的封装格式，希望大家继续关注，有什么想要了解的有关的方面希望在文章后留言或者我们的高清论坛进行互动。</p>
-<p><strong>转自-<a href="http://hd.zol.com.cn/214/2146509.html" target="_blank" rel="external">ZOL中关村在线</a></strong></p>
-
-          
+          我们在详解各种主流的视频格式之前，先抛开各种视频格式的定义，来讨论这样一件事情：你觉得目前的视频格式编码混乱吗？相信这个问题问出来，许多、、不同知识层次的人有不同的思考，但是答案却都有一个共同点就是：“混乱”。
+从我们在接触网络上面看电影以来，就会遇到从原先我们熟知的RMVB格式的视频到后来接触的M
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/02/26/视频编码格式全面解析/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -532,6 +456,16 @@
 
           
             
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/01/14/hello-world/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/01/14/hello-world/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
           
 
           
@@ -556,17 +490,15 @@
       
         
           
-            <p>Welcome to <a href="http://localhost:4000/my-first-artcle.md" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/01/14/hello-world/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -652,6 +584,35 @@
         
 
         <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/insilence" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/tengjiehuang" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/tengjiehuang" target="_blank" title="Weibo">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  Weibo
+                </a>
+              </span>
+            
           
         </div>
 
@@ -782,34 +743,171 @@
 
   
 
+  
+    
+  
 
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"insilence"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
 
+  
+    
+      
+      <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+      <script src="/js/src/hook-duoshuo.js?v=5.1.0"></script>
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
   
 
 
 
 
-	
 
 
 
-
-
-  
 
 
 
 
 
   
-
   
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
 
+    function proceedsearch() {
+      $("body").append('<div class="popoverlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
 
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
 
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
 
-  
-  
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".popoverlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
 
   
 
