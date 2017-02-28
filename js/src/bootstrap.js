@@ -2,7 +2,7 @@
 
 $(document).ready(function () {
 
-  $(document).trigger('bootstrap:before');
+  //$(document).trigger('bootstrap:before');
 
   NexT.utils.isMobile() && window.FastClick.attach(document.body);
 
@@ -29,11 +29,13 @@ $(document).ready(function () {
 
 
   // Define Motion Sequence.
+
   NexT.motion.integrator
-    .add(NexT.motion.middleWares.logo)
+    //.add(NexT.motion.middleWares.logo)
     .add(NexT.motion.middleWares.menu)
     .add(NexT.motion.middleWares.postList)
     .add(NexT.motion.middleWares.sidebar);
+
 
   $(document).trigger('motion:before');
 

@@ -837,7 +837,7 @@ pre .javascript .function {
   font-size: 14px;
   color: #fff;
   background: #222;
-  border: 2px solid #555;
+  border: 2px solid #222;
   text-decoration: none;
   border-radius: 0;
   transition-property: background-color;
@@ -848,8 +848,8 @@ pre .javascript .function {
 .btn:hover,
 .post-more-link .btn:hover {
   border-color: #222;
-  color: #fff;
-  background: #222;
+  color: #222;
+  background: #fff;
 }
 .btn-bar {
   display: block;
@@ -1686,7 +1686,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #8f26aa;
+  background: #a65e90;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2849,4 +2849,47 @@ a.search-result {
   .post-body {
     text-align: justify;
   }
+}
+.mybtn {
+  display: inline-block;
+  padding: 0px;
+  font-size: 13px;
+  color: #a8a8a8;
+  background: #fff;
+  text-decoration: none;
+  border-radius: $mybtn-default-radius;
+  transition-property: background-color;
+  transition-duration: 0.2s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0s;
+}
+.mybtn:hover,
+.post-more-link .mybtn:hover {
+  color: #a8a8a8;
+  background: $bmytn-default-hover-bg;
+}
+.mybtn-bar {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: #555;
+  border-radius: 1px;
+}
+.mybtn-bar+.mybtn-bar {
+  margin-top: 4px;
+}
+.post-more-link {
+  margin-top: 50px;
+}
+.post-more-link .mybtn {
+  color: #555;
+  font-size: 14px;
+  background: #fff;
+  border-radius: 2px;
+  line-height: 2;
+  margin: 0 4px 8px 4px;
+}
+.post-more-link .fa-fw {
+  width: 1.285714285714286em;
+  text-align: left;
 }
