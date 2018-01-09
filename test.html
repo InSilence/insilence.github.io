@@ -10,19 +10,25 @@ body {
 }  
 </style>  
 <script type="text/javascript" language="javascript">  
- function iFrameHeight() {  
-  var ifm = document.getElementById("iframepage");  
-  var subWeb = document.frames ? document.frames["iframepage"].document  
-    : ifm.contentDocument;  
-  if (ifm != null && subWeb != null) {  
-   ifm.height = subWeb.body.scrollHeight;  
-  }  
- }  
+function setIframeHeight(iframeId){  
+    var cwin = document.getElementById(iframeId);   
+    if (document.getElementById){  
+        if (cwin && !window.opera){  
+            if (cwin.contentDocument && cwin.contentDocument.body.offsetHeight){  
+                cwin.height = cwin.contentDocument.body.offsetHeight + 20; //FF NS   
+            }  
+            else if(cwin.Document && cwin.Document.body.scrollHeight){  
+                cwin.height = cwin.Document.body.scrollHeight + 10;//IE   
+            }  
+        }else{  
+            if(cwin.contentWindow.document && cwin.contentWindow.document.body.scrollHeight)   
+            cwin.height = cwin.contentWindow.document.body.scrollHeight;//Opera   
+        }  
+    }   
+};  
 </script>  
 </head>  
 <body>  
- <iframe src="https://mail.qq.com/cgi-bin/loginpage" id="iframepage"  
-  name="iframepage" frameBorder=0 scrolling=no width="100%"  
-  onLoad="iFrameHeight()"></iframe>  
+<iframe onload="setIframeHeight(ifm1);" id="ifm1"  frameborder="0" scrolling="no" src="https://mail.qq.com/cgi-bin/loginpage" style="width: 100%;heigth: 100%;"></iframe>  
 </body>  
 </html>  
