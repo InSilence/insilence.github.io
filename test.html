@@ -4,21 +4,25 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">  
 <style type="text/css">  
 body {  
+ height:100%;
  padding: 0px;  
  margin: 0px;  
 }  
 </style>  
 <script type="text/javascript" language="javascript">  
-function iframeLoad()  
-{  
-    document.getElementById("iframe").height=0;  
-    document.getElementById("iframe").height=document.getElementById("iframe").contentWindow.document.body.scrollHeight;  
-}   
+ function iFrameHeight() {  
+  var ifm = document.getElementById("iframepage");  
+  var subWeb = document.frames ? document.frames["iframepage"].document  
+    : ifm.contentDocument;  
+  if (ifm != null && subWeb != null) {  
+   ifm.height = subWeb.body.scrollHeight;  
+  }  
+ }  
 </script>  
 </head>  
 <body>  
  <iframe src="https://mail.qq.com/cgi-bin/loginpage" id="iframepage"  
   name="iframepage" frameBorder=0 scrolling=no width="100%"  
-  onLoad="iframeLoad()"></iframe>  
+  onLoad="iFrameHeight()"></iframe>  
 </body>  
 </html>  
